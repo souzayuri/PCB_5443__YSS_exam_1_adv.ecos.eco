@@ -11,22 +11,23 @@ output:
 ---
 
 \pagebreak
-#### All the data and code are available ***[here](https://github.com/slowkow/ggrepel)***
+### All the data and code are available ***[here](https://github.com/souzayuri/PCB_5443__YSS_exam_1_adv.ecos.eco)***
 
-## **Part I: Comparing Nutrient Concentrations in Watersheds (75 points). **
-
+## **Part I: Comparing Nutrient Concentrations in Watersheds (75 points). 
+### **This part comprises both exercises A, B and C. **
 ### **1)** A plot of nutrient concentrations vs time using R or Excel, but try using R (5 points)
 
-**A:** Graphs showing the linear (A) and locally estimated scatterplot smoothingh (B) trend of total dissolved nutrient (nitrogen+phosphorus) and nitrogen and phosphorus individually for **Harris Creek-Choptank River** (*HUC12 20600050506*).
+**A:** Graphs showing the *linear fir (A)* and *locally estimated scatterplot smoothingh (B)* trend of total dissolved nutrient (nitrogen+phosphorus) and nitrogen and phosphorus individually for **Harris Creek-Choptank River** station *XFG2810* and *XFG6431* (*20600050506*).
 
-![](G:/My Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/20230207_YSS_exam_1_adv.ecos.eco/02_figures/nutrient_graph_pt1.png)
+![](G:/My Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/PCB_5443__YSS_exam_1_adv.ecos.eco/02_figures/XFG2810_nutrient_graph_pt1.png)
+![](G:/My Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/PCB_5443__YSS_exam_1_adv.ecos.eco/02_figures/XFG6431_nutrient_graph_pt1.png)
 
-\pagebreak
+
 
 ### **2)** A prediction about how you expect nutrient concentrations to change and why (5 points)
 **A:** The Choptank River is a tributary of the Chesapeake Bay, which is an estuary ecosystem that goes through a transition between freshwater and saltwater. The bay, as well as the river, is situated and bordered by agricultural and urban areas and also experiences human activities such as boats and cruises moving in and out of the bay.
 
-Under natural stressors and dynamic conditions, over time, one would expect the nutrient concentration to change more according to the ocean's current across the year, which can bring nutrients from the open sea or mix the water that is already present, thus moving nutrients from the bottom of the river to the top. This process is influenced by seasonal and climatic events, but on a larger temporal scale, it would remain natural and balanced.
+Under natural stressors and dynamic conditions, over time, one would expect the nutrient concentration to change more according to the ocean's current across the year, which can bring nutrients from the open sea or mix the water that is already present, thus moving nutrients from the bottom of the river to the top (Cottingham et al., 2015). This process is influenced by seasonal and climatic events, but on a larger temporal scale, it would remain natural and steady. Beyond that, nitrogen should change more than phosphorus because the first is more abundant in nature and can be assimilated from the atmosphere, while the second is mainly presented and stocked in dust and rocks (Redfield, 1958; Elser et al., 2007).
 
 In the anthropogenic scenario, the proximity of the river to human environments makes it vulnerable to practices like bad agriculture management through soil nutrient fertilization, urban pollution, and sewage outfalls into the river. These activities can lead to an increase in the concentration of nitrogen, phosphorus, and other macronutrients in the water over time. The situation can get worse with the introduction of exotic species due to boat, cruise, and ship activity because these species might assimilate the available nutrients at a higher rate than the native ones, thus leading to negative trophic cascade feedback. This, in turn, can alter the nutrient dynamic and their concentration in the water.
 
@@ -35,7 +36,7 @@ A third prediction is that human activities may alter nutrient concentrations ov
 
 ### **3)** The equation of the fitted line, R²-value, the slope (5 points)
 
-**A:** The R²-value and Slope were both acquired by fitting a *linear model* using the *lm() function*. with the response **variable** being *MeasureValue* and **predictor** the time *SampleDates*. The chunk below shows the function I created to extract only the R²-value and Slope from the model since the model output had more information than asked by the question. The function was applied to *total dissolve nutrients* and *individually to nitrogen* and *phosphorus* (as shown in the figure of question 1). For more details, take a look at the full code included in the last pages of this document.
+**A:** The *R²-value* and *Slope* were both acquired by fitting a *linear model* using the *lm() function*. with the response **variable** being *MeasureValue* and **predictor** the time *SampleDates*. The chunk below shows the function I created to extract only the R²-value and Slope from the model since the model output had more information than asked by the question. The function was applied to *total dissolve nutrients* and *individually to nitrogen* and *phosphorus* (as shown in the figure of question 1). For more details, take a look at the full code included in the last pages of this document.
 
 ```{r, echo=TRUE, results='hide', message = FALSE, include=TRUE, warning=FALSE, fig.show='hide'}
 
@@ -60,16 +61,19 @@ model_coeff <- function(x) {
 
 ```
 
-\pagebreak
-
 ### **4)** Description of Results: How is nutrient concentration changing over time? (5 points)
-**A:** Over time, there has been a slightly positive trend in the *linear fit* of total dissolved nitrogen and phosphorus together. However, the slope of their concentration shows a slight decrease (Slope = 2.5118^-05^, R² = 0.02). It appears that both patterns are driven by nitrogen alone (Slope = 5.0237^-05^, R² = 0.03) rather than phosphorus (Slope = -1^-09^, R² = 1^-08^). These inconsistencies among the graphs and the values can probably be better explained by fitting a *locally estimated scatterplot smoothing*, which is a non-parametric and nonlinear fit. This analysis shows that nitrogen has been experiencing years with peaks of increase (2016 and 2019, respectively), followed by a decrease shortly after. On the other hand, phosphorus had an increase after 2015 and remained almost constant until 2020.
+**A:** Over time, there has been a slightly positive trend in the *linear fit* of total dissolved nitrogen and phosphorus together for *XFG2810*. However, the slope of their concentration shows a slight decrease (Slope = 9.9138^-05^, R² = 0.005). It appears that both patterns are driven by nitrogen alone, which has a higher slope, (Slope = 7.9998^-05^, R² = 0.075) rather than phosphorus (Slope = -1.723^-06^, R² = 0.008). The data from *XFG6431* station follows the same pattern, with the exception that phosphorus are driving more the nutrient concentration (Slope = -1.727^-06^, R² = 0.025) instead of nitrogen (Slope = 2.0124^-05^, R² = 0.007) or both together (Slope = 1.0925^-05^, R² = 0.0004).
+
+It is likely that the inconsistencies between the graphs and the values can be better explained by using a *locally estimated scatterplot smoothing*, which is a non-parametric and nonlinear fit. This analysis shows that the nitrogen levels at both stations experienced peaks of increase in 2016 and 2019, respectively, followed by a decrease. As for phosphorus levels, they increased after 2015 and remained relatively stable until 2020 at station *XFG2810* (figure 1a.b), while at station *XFG6431* (figure 1b.b), they increased in a dome-shaped curve until 2018 and then decreased.
 
 Both approaches suggest that nutrient concentration may not vary in a linear fashion, but instead may experience fluctuations over time. However, these changes are minimal and cannot be attributed to the nutrient itself, as evidenced by the very low R² value.
 
 ### **5)** Interpretation of Results: What could explain these changes (refer to information learned from lecture and class readings)? (5 points)
-**A:** Harris Creek is situated at the Chesapeake Bay that has been part of a long-term conservation plan aimed at restoring oysters. Various restoration efforts have been implemented in Harris Creek, such as planting oyster spat (young oysters) in designated reefs, constructing artificial reefs, and improving water quality to support oyster populations. These initiatives contribute to the overall health and resilience of the Chesapeake Bay ecosystem, which has been threatened by human activities (Bruce et al., 2021). 
-Although there were no significant change in the total dissolved nutrient concentration based on the *slope* and *R²* values, we do see that nitrogen fluctuates over time (Figure 1B). If we take only nitrogen into consideration, we can rationalize that the re-introduced oysters might potentially play their function in mitigating the excessive nitrogen via trophic interactions and benthic denitrification. Excessive nitrogen loading can stimulate algal growth, which may lead to harmful algal blooms (Bruce et al., 2021). On the other hand, oysters are known to remove nitrogen from the water by consuming microscopic algae and organic matter present in the water. This nitrogen is either stocked in their tissues or released back into the environment in a different molecular form, such as ammonia or organic nitrogen. Additionally, oyster byproducts accumulate in sediment and support microbial communities which further remove nitrogen from water through denitrification (Humphries et al., 2016). In this sense, we can hypothesize that the practices in Chesapeake Bay have been effective in controlling nutrient concentrations (Bruce et al., 2021).
+**A:** Harris Creek is situated at the Chesapeake Bay that has been part of a long-term conservation plan aimed at restoring oysters. Various restoration efforts have been implemented in Harris Creek, such as planting oyster spat (young oysters) in designated reefs, constructing artificial reefs, and improving water quality to support oyster populations. These initiatives contribute to the overall health and resilience of the Chesapeake Bay ecosystem, which has been threatened by human activities (Elser et al., 2007; Bruce et al., 2021). 
+
+Although there were no significant change in the total dissolved nutrient concentration based on the *slope* and *R²* values, we do see that nitrogen fluctuates over time at both stations, while phosphorus changed more at the *XFG6431*,(Figure 1b). If we take only nitrogen into consideration, we can rationalize that the re-introduced oysters might potentially play their function in mitigating the excessive nitrogen via trophic interactions and benthic denitrification. Excessive nitrogen loading can stimulate algal growth, which may lead to harmful algal blooms (Bruce et al., 2021). On the other hand, oysters are known to remove nitrogen from the water by consuming microscopic algae and organic matter present in the water. This nitrogen is either stocked in their tissues or released back into the environment in a different molecular form, such as ammonia or organic nitrogen. Additionally, oyster byproducts accumulate in sediment and support microbial communities which further remove nitrogen from water through denitrification (Humphries et al., 2016). In this sense, we can hypothesize that the practices in Chesapeake Bay have been effective in controlling nutrient concentrations (Bruce et al., 2021). 
+
+In regarding to phosphorus at the station *XFG6431*, it is said that this region are strongly affect by manure, which is one of the largest phosphorus sources (Keisman et al., 2018). Although the nitrogen restoration practices seem to be effective, the same cannot be said for phosphorus, as the concentration levels of this nutrient have increased in both places when compared to the first year of sampling. One possible reason is that phosphorus is more stable chemically and have a high affinity for binding to sediment particles, plus it is a limiting nutrient for the trophic structure of aquatic ecosystems, making it harder to remove or mitigate (Elser et al., 2007; Cottingham et al., 2015; Weathers et al., 2021).
 
 \pagebreak
 
@@ -77,27 +81,33 @@ Although there were no significant change in the total dissolved nutrient concen
 
 ### **1)** Two plots of N vs P concentrations from two watersheds using R or Excel, but try using R (5 points)
 
-**A:** Graphs showing the linear (A) and smooth (B) trend of total dissolved Nitrogen vs Phosphorus for **Harris Creek-Choptank River** (*HUC12 20600050506*) and **Bush River** (*020600030106*).
+**A:** Graphs showing the *linear fit (A)* and *locally estimated scatterplot smoothingh (B)* trend of Total *Dissolved Nitrogen:Total Dissolved Phosphorus* ratio for **Harris Creek-Choptank River** (*HUC12 20600050506*) and **Bush River** (*020600030106*).
 
-![](G:/My Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/20230207_YSS_exam_1_adv.ecos.eco/02_figures/nutrient_graph_pt2.png)
+![](G:/My Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/PCB_5443__YSS_exam_1_adv.ecos.eco/02_figures/nutrient_graph_ratio_pt2.png)
 
 ### **2)** A prediction about which nutrient limitation you expect and why (5 points)
+
+**A:** The Chesapeake Bay watershed is home to vast agricultural areas where phosphorus-rich fertilizers, including manure, are frequently used, leading to an increase in nutrient input from the land to aquatic ecosystems. Recent studies have shown that an increase in either nitrogen or phosphorus can have a greater impact on ecosystems when combined, compared to their individual effects (Elser et al., 2007).
+
+Since phosphorus is the limiting factor in primary production in aquatic ecosystems, I would predict that an increase in its concentration would affect the trophic interaction by enhancing the primary production of algae. This, in turn, can suppress the growth of nitrogen-fixing cyanobacteria, thus the uptake nitrogen from the atmosphere, by out-competing them for other resources or by affecting the habitat suitability. For instance, the increase in algae production can lead to shading of the water column.
+
+In contrast, denitrification may occur following a subsequent die-off of algae blooms. This can cause a high rate of decomposition by microbes, resulting in the conversion of nitrate into nitrogen gas, which is then released from the aquatic ecosystem into the atmosphere. A similar process can occur through eutrophication, where anaerobic bacteria can stimulate the oxidation of ammonium, converting it into nitrite and nitrogen gas (Cottingham et al., 2015; Weathers et al., 2021).
 
 
 ### **3)** The equation of the fitted line, R2-value, the slope (5 points)
 
-**A:** The R²-value and Slope were both acquired by fitting a *linear model* using the *lm() function*. with the response **variable** being the *Total Dissolved Nitrogen* and **predictor** the *Total Dissolved Phosphorus*. The chunk below shows the function I created to extract only the R²-value and Slope from the model since the model output had more information than asked by the question. The function was applied to check the relationship of *Total Dissolved Nitrogen* and *Total Dissolved Phosphorus* for both **Harris Creek-Choptank River** and **Bush River** (as shown in the figure of question 2). For more details, take a look at the full code included in the last pages of this document.
+**A:** The R²-value and Slope were both acquired by fitting a *linear model* using the *lm() function*. with the response **variable** being the ratio of *Total Dissolved Nitrogen:Total Dissolved Phosphorus* and **predictor** the time *SampleDates*. To calculate the N:P ratio I divided the Total Dissolved Nitrogen by Total Dissolved Phosphorus. The chunk below shows the function I created to extract only the R²-value and Slope from the model since the model output had more information than asked by the question. For more details, take a look at the full code included in the last pages of this document.
 
 ```{r, echo=TRUE, results='hide', message = FALSE, include=TRUE, warning=FALSE, fig.show='hide'}
 
 # function to extract the R²-value and Slope form a lm() model
 
-model_coeff <- function(x) {
-  model_summary_np <- data_HCCR_BR |> 
+model_coeff_HCCR_BR <- function(x) {
+  model_summary_np_HCCR_BR <- data_HCCR_BR |> 
     dplyr::group_by(model = 1) |>  
     dplyr::filter(HUC12 == x) |> 
     dplyr::do({
-      model <- lm(TDN ~ TDP, data = .)  
+      model <- lm(Ratio ~ SampleDates, data = .)  
       dplyr::tibble(
         slope = broom::tidy(model)$estimate[2],  
         r_squared = broom::glance(model)$r.squared  
@@ -106,21 +116,24 @@ model_coeff <- function(x) {
     dplyr::ungroup() |> 
     dplyr::select(!1)
   
-  return(model_summary_np) 
+  return(model_summary_np_HCCR_BR) 
 }
 
 ```
 
 ### **4)** Description of Results: Which nutrient is most limiting in both watersheds? How do you know? (5 points)
+**A:** The results from the analysis of *Choptank River* reveal that there is almost no change over time in the N:P ratio slope (Slope = 0.002, R² = 0.0028). However, the *locally estimated scatterplot smoothingh graph* (2B) indicates a slight variation over time. On the other hand, *Bush River* shows a slight increase in the slope over time, but it is poorly explained by time itself (Slope = 0.003, R² = 0.0186).
 
+According to these findings, the fitted curve would decrease if nitrogen was limiting the watershed. However, it is observed that none of the watersheds are being limited by nitrogen over time, except for a slight trend observed for the *Choptank River*. The trend decreased until 2018, but then started increasing again in a dome-shaped manner.
 
 ### **5)** Interpretation of Results: What could explain the results of N, P, or N and P limitation (refer to information learned from lecture and class readings)? (5 points)
+**A:** The small variations over time in the *Total Dissolve N:Total Dissolve P* ratio indicate that the two watersheds in question are not being limited by nitrogen, despite having a history of human disturbances. The changes in nutrient ratio over time in the *Choptank River* may be due to the Chesapeake Bay's efforts to restore oysters, which could be reducing the negative feedback of phosphorus input in these aquatic ecosystems, thereby keeping nitrogen levels within the limits regarding phosphorus input (Bruce et al., 2021). Since these changes are not significant, it is also possible that they might be driven by natural conditions such as biological activity and/or response to changes in environmental conditions, which are not strong enough to disrupt the resistance of these ecosystems (Cottingham et al., 2015).
 
 \pagebreak
 
 ## **Map (Bruce et al., 2021)**
 
-![](G:/My Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/20230207_YSS_exam_1_adv.ecos.eco/02_figures/chesepeake_map.png)
+![](G:/My Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/PCB_5443__YSS_exam_1_adv.ecos.eco/02_figures/chesepeake_map.png)
 
 \pagebreak
 
@@ -128,7 +141,17 @@ model_coeff <- function(x) {
 
 ### Bruce, D. G., Cornwell, J. C., Harris, L., Ihde, T. F., Lisa, M., Kellogg, S. K., ... & Vogt, B. (2021). A synopsis of research on the ecosystem services provided by Large-scale oyster restoration in the Chesapeake bay. NOAA Tech. Memo. NMFS-OHC, 8, 52. 
 
+### Cottingham, K. L., Ewing, H. A., Greer, M. L., Carey, C. C., & Weathers, K. C. (2015). Cyanobacteria as biological drivers of lake nitrogen and phosphorus cycling. Ecosphere, 6(1), 1-19.
+
+### Elser, J. J., Bracken, M. E., Cleland, E. E., Gruner, D. S., Harpole, W. S., Hillebrand, H., ... & Smith, J. E. (2007). Global analysis of nitrogen and phosphorus limitation of primary producers in freshwater, marine and terrestrial ecosystems. Ecology letters, 10(12), 1135-1142.
+
 ### Humphries, A. T., Ayvazian, S. G., Carey, J. C., Hancock, B. T., Grabbert, S., Cobb, D., ... & Fulweiler, R. W. (2016). Directly measured denitrification reveals oyster aquaculture and restored oyster reefs remove nitrogen at comparable high rates. Frontiers in Marine Science, 3, 74.
+
+### Keisman, J., Devereux, O. H., LaMotte, A. E., Sekellick, A., & Blomquist, J. (2018, December). Manure and fertilizer inputs to land in the Chesapeake Bay watershed, 1950-2012. In AGU Fall Meeting Abstracts (Vol. 2018, pp. H13K-1892).
+
+### Redfield, A. C. (1958). The biological control of chemical factors in the environment. American scientist, 46(3), 230A-221.
+
+### Weathers, K. C., Strayer, D. L., & Likens, G. E. (Eds.). (2021). Fundamentals of ecosystem science. Academic Press.
 
 \pagebreak
 
@@ -141,25 +164,29 @@ model_coeff <- function(x) {
 if(!require(tidyverse)) install.packages("tidyverse", dependencies = TRUE)
 if(!require(ggpubr)) install.packages("ggpubr", dependencies = TRUE)
 
+
 data <- readr::read_csv("00_data/WaterQualityWaterQualityHUC12_HCCR.csv")
 
 glimpse(data)
 
-data_fltd <- data |> 
+#station 1 - Part A and C
+unique(data$Station)
+data_fltd_XFG2810 <- data |> 
+  dplyr::filter(Station == "XFG2810") |> 
   dplyr::select(c(SampleDate, Parameter, MeasureValue)) |> 
   tidyr::drop_na("MeasureValue") |> 
   dplyr::mutate(SampleDates = as.Date(SampleDate, format = "%m/%d/%Y"),
                 SampleDate = as.factor(SampleDate))
 
-data_fltd_n_p <- data_fltd |> 
+data_fltd_n_p_XFG2810 <- data_fltd_XFG2810 |> 
   dplyr::mutate(Parameter = "TDNP")
 
-data_fltd_ttl <- rbind(data_fltd, data_fltd_n_p)
-data_fltd_ttl
+data_fltd_ttl_XFG2810 <- rbind(data_fltd_XFG2810, data_fltd_n_p_XFG2810)
+data_fltd_ttl_XFG2810
 
 
-model_coeff <- function(x) {
-    model_summary_np <- data_fltd_ttl |> 
+model_coeff_XFG2810 <- function(x) {
+    model_summary_np_XFG2810 <- data_fltd_ttl_XFG2810 |> 
       dplyr::group_by(model = 1) |>  
       dplyr::filter(Parameter == x) |> 
       dplyr::do({
@@ -172,25 +199,21 @@ model_coeff <- function(x) {
       dplyr::ungroup() |> 
       dplyr::select(!1)
 
-  return(model_summary_np) 
+  return(model_summary_np_XFG2810) 
 }
 
 
-nt.model.coeff <- bind_rows(model_coeff("TDNP"), 
-                            model_coeff("TDN"), 
-                            model_coeff("TDP")) |> 
+nt.model.coeff_XFG2810 <- dplyr::bind_rows(model_coeff_XFG2810("TDNP"), 
+                                           model_coeff_XFG2810("TDN"), 
+                                           model_coeff_XFG2810("TDP")) |> 
   dplyr::mutate(Parameter = c("TDNP", "TDN", "TDP"),
                 date_label = "2015-05-14") |> 
   dplyr::select(c(3, dplyr::everything()))
-nt.model.coeff
+nt.model.coeff_XFG2810
 
-
-
-
-# graphs 
-
-lm_model_1pt <- ggplot(data_fltd_ttl, aes(y=MeasureValue, x=SampleDates)) + 
-  geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.5) +
+lm_model_1pt_XFG2810 <- ggplot(data_fltd_ttl_XFG2810, 
+                               aes(y=MeasureValue, x=SampleDates)) + 
+  geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.2) +
   geom_smooth(method="lm", col="darkred", linewidth = 2) +
   theme_bw() +
   aes(ymax=Inf) +
@@ -204,15 +227,16 @@ lm_model_1pt <- ggplot(data_fltd_ttl, aes(y=MeasureValue, x=SampleDates)) +
   facet_wrap(.~factor(Parameter, c("TDNP", "TDN", "TDP"), 
                       labels = c("Nitrogen + Phosphorus", "Nitrogen", "Phosphorus")), 
              scales = "free") +
-  geom_text(data = nt.model.coeff, aes(label = paste("Slope:", round(slope, 9), 
-                                                     "\nR²:", round(r_squared, 8)),
-                                       x = as.Date(date_label), y = -Inf),
+  geom_text(data = nt.model.coeff_XFG2810, 
+            aes(label = paste("Slope:", round(slope, 9), "\nR²:", round(r_squared, 8)),
+                                          x = as.Date(date_label), y = -Inf),
             hjust = 0.1, vjust = -10, size = 4, color = "black")
 
 
 
-loess_model_1pt <- ggplot(data_fltd_ttl, aes(y=MeasureValue, x=SampleDates)) + 
-  geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.5) +
+loess_model_1pt_XFG2810 <- ggplot(data_fltd_ttl_XFG2810, 
+                                  aes(y=MeasureValue, x=SampleDates)) + 
+  geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.2) +
   geom_smooth(method="loess", col="darkred", linewidth = 2) +
   theme_bw() +
   aes(ymax=Inf) +
@@ -226,18 +250,111 @@ loess_model_1pt <- ggplot(data_fltd_ttl, aes(y=MeasureValue, x=SampleDates)) +
   facet_wrap(.~factor(Parameter, c("TDNP", "TDN", "TDP"), 
                       labels = c("Nitrogen + Phosphorus", "Nitrogen", "Phosphorus")), 
              scales = "free") +
-  geom_text(data = nt.model.coeff, aes(label = paste("Slope:", round(slope, 9),
-                                                     "\nR²:", round(r_squared, 8)),
+  geom_text(data = nt.model.coeff_XFG2810, 
+            aes(label = paste("Slope:", round(slope, 9), "\nR²:", round(r_squared, 8)),
                                        x = as.Date(date_label), y = -Inf),
             hjust = 0.1, vjust = -10, size = 4, color = "black")
 
-my_plot_list <- list(lm_model_1pt,loess_model_1pt)
+my_plot_list_XFG2810 <- list(lm_model_1pt_XFG2810, loess_model_1pt_XFG2810)
 
-ggpubr::ggarrange(plotlist = my_plot_list, labels = c("A", "B"), nrow = 2) |> 
-  annotate_figure(top = text_grob("Harris Creek-Choptank River", 
-                                  color = "black", face = "bold", size = 14))
+ggpubr::ggarrange(plotlist = my_plot_list_XFG2810, labels = c("A", "B"), nrow = 2) |> 
+  annotate_figure(
+    top = text_grob("Figure 1. Harris Creek-Choptank River - XFG2810 Station", 
+                    color = "black", face = "bold", size = 16))
 
 
+# Part B and C
+
+data_fltd_XFG6431 <- data |> 
+  dplyr::filter(Station == "XFG6431") |> 
+  dplyr::select(c(SampleDate, Parameter, MeasureValue)) |> 
+  tidyr::drop_na("MeasureValue") |> 
+  dplyr::mutate(SampleDates = as.Date(SampleDate, format = "%m/%d/%Y"),
+                SampleDate = as.factor(SampleDate))
+
+data_fltd_n_p_XFG6431 <- data_fltd_XFG6431 |> 
+  dplyr::mutate(Parameter = "TDNP")
+
+data_fltd_ttl_XFG6431 <- rbind(data_fltd_XFG6431, data_fltd_n_p_XFG6431)
+data_fltd_ttl_XFG6431
+
+
+model_coeff_XFG6431 <- function(x) {
+  model_summary_np_XFG6431 <- data_fltd_ttl_XFG6431 |> 
+    dplyr::group_by(model = 1) |>  
+    dplyr::filter(Parameter == x) |> 
+    dplyr::do({
+      model <- lm(MeasureValue ~ SampleDates, data = .)  
+      dplyr::tibble(
+        slope = broom::tidy(model)$estimate[2],  
+        r_squared = broom::glance(model)$r.squared  
+      )
+    }) |> 
+    dplyr::ungroup() |> 
+    dplyr::select(!1)
+  
+  return(model_summary_np_XFG6431) 
+}
+
+
+nt.model.coeff_XFG6431 <- dplyr::bind_rows(model_coeff_XFG6431("TDNP"), 
+                                           model_coeff_XFG6431("TDN"), 
+                                           model_coeff_XFG6431("TDP")) |> 
+  dplyr::mutate(Parameter = c("TDNP", "TDN", "TDP"),
+                date_label = "2015-05-14") |> 
+  dplyr::select(c(3, dplyr::everything()))
+nt.model.coeff_XFG6431
+
+lm_model_1pt_XFG6431 <- ggplot(data_fltd_ttl_XFG6431, 
+                               aes(y=MeasureValue, x=SampleDates)) + 
+  geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.2) +
+  geom_smooth(method="lm", col="darkred", linewidth = 2) +
+  theme_bw() +
+  aes(ymax=Inf) +
+  labs(x = "Dates", y = "Total Dissolved Nutrient(Mg/L)") +
+  scale_x_date(date_breaks = "year", date_labels = "%Y") +
+  theme(axis.text.x= element_text(angle=-75, size = 14, vjust = 0.2),
+        axis.text.y= element_text(size = 14),
+        axis.title.x = element_text(size = 18),
+        axis.title.y = element_text(size = 18),
+        strip.text = element_text(size = 12)) + 
+  facet_wrap(.~factor(Parameter, c("TDNP", "TDN", "TDP"), 
+                      labels = c("Nitrogen + Phosphorus", "Nitrogen", "Phosphorus")), 
+             scales = "free") +
+  geom_text(data = nt.model.coeff_XFG6431, 
+            aes(label = paste("Slope:", round(slope, 9), "\nR²:", round(r_squared, 8)),
+                                               x = as.Date(date_label), y = -Inf),
+            hjust = 0.1, vjust = -10, size = 4, color = "black")
+
+
+
+loess_model_1pt_XFG6431 <- ggplot(data_fltd_ttl_XFG6431, 
+                                  aes(y=MeasureValue, x=SampleDates)) + 
+  geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.2) +
+  geom_smooth(method="loess", col="darkred", linewidth = 2) +
+  theme_bw() +
+  aes(ymax=Inf) +
+  labs(x = "Dates", y = "Total Dissolved Nutrient(Mg/L)") +
+  scale_x_date(date_breaks = "year", date_labels = "%Y") +
+  theme(axis.text.x= element_text(angle=-75, size = 14, vjust = 0.2),
+        axis.text.y= element_text(size = 14),
+        axis.title.x = element_text(size = 18),
+        axis.title.y = element_text(size = 18),
+        strip.text = element_text(size = 12)) + 
+  facet_wrap(.~factor(Parameter, c("TDNP", "TDN", "TDP"), 
+                      labels = c("Nitrogen + Phosphorus", "Nitrogen", "Phosphorus")), 
+             scales = "free") +
+  geom_text(data = nt.model.coeff_XFG6431, 
+            aes(label = paste("Slope:", round(slope, 9), "\nR²:", round(r_squared, 8)),
+                                               x = as.Date(date_label), y = -Inf),
+            hjust = 0.1, vjust = -10, size = 4, color = "black")
+
+my_plot_list_XFG6431 <- list(lm_model_1pt_XFG6431, loess_model_1pt_XFG6431)
+
+ggpubr::ggarrange(plotlist = my_plot_list_XFG6431, labels = c("A", "B"), nrow = 2) |> 
+  annotate_figure(
+    top = text_grob("Figure 1. Harris Creek-Choptank River - XFG6431 Station",
+                    color = "black", face = "bold", size = 16))
 
 
 
@@ -254,32 +371,40 @@ ggpubr::ggarrange(plotlist = my_plot_list, labels = c("A", "B"), nrow = 2) |>
 if(!require(tidyverse)) install.packages("tidyverse", dependencies = TRUE)
 if(!require(ggpubr)) install.packages("ggpubr", dependencies = TRUE)
 
+
 data_HCCR <- readr::read_csv("00_data/WaterQualityWaterQualityHUC12_HCCR.csv") |> 
-  dplyr::select(c(1,18,20)) |> 
+  dplyr::select(c(1,9,18,20)) |> 
   tidyr::drop_na("MeasureValue")
 data_HCCR
 
 data_BR <- readr::read_csv("00_data/WaterQualityWaterQualityHUC12_BR.csv") |> 
-  dplyr::select(c(1,18,20)) |> 
+  dplyr::select(c(1,9,18,20)) |> 
   tidyr::drop_na("MeasureValue")
 data_BR
 
+
+
 data_HCCR_BR <- rbind(data_HCCR, data_BR) |> 
-  dplyr::group_by(Parameter) %>%
+  dplyr::group_by(Parameter, SampleDate) %>%
   dplyr::mutate(Row = row_number()) %>%
   tidyr::pivot_wider(names_from = Parameter, values_from = MeasureValue) |> 
   dplyr::select(-Row) |> 
   dplyr::ungroup() |> 
   dplyr::mutate(HUC12 = stringr::str_replace(HUC12, "20600050506", "HCCR"),
-                HUC12 = stringr::str_replace(HUC12, "020600030106", "BR"))
+                HUC12 = stringr::str_replace(HUC12, "020600030106", "BR"),
+                Ratio = TDN/TDP,
+                SampleDates = as.Date(SampleDate, format = "%m/%d/%Y"),
+                SampleDate = as.factor(SampleDate)) 
 data_HCCR_BR
+
+
 
 model_coeff_HCCR_BR <- function(x) {
   model_summary_np_HCCR_BR <- data_HCCR_BR |> 
     dplyr::group_by(model = 1) |>  
     dplyr::filter(HUC12 == x) |> 
     dplyr::do({
-      model <- lm(TDN ~ TDP, data = .)  
+      model <- lm(Ratio ~ SampleDates, data = .)  
       dplyr::tibble(
         slope = broom::tidy(model)$estimate[2],  
         r_squared = broom::glance(model)$r.squared  
@@ -297,59 +422,67 @@ model_coeff_HCCR_BR("BR")
 
 nt.model.coeff_HCCR_BR <- bind_rows(model_coeff_HCCR_BR("HCCR"), 
                                     model_coeff_HCCR_BR("BR")) |> 
-  dplyr::mutate(HUC12 = c("HCCR", "BR"))
+  dplyr::mutate(HUC12 = c("HCCR", "BR"),
+                date_label = "2015-05-14") |> 
+  dplyr::select(c(3, dplyr::everything()))
 nt.model.coeff_HCCR_BR
-
-
 
 
 # graphs
 
-lm_model_2pt <- ggplot(data_HCCR_BR, aes(y=TDN, x=TDP)) + 
+lm_model_2pt <- ggplot(data_HCCR_BR, aes(y=Ratio, x=SampleDates)) + 
   geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.2) +
   geom_smooth(method="lm", col="darkred", linewidth = 2) +
   theme_bw() +
-  #aes(ymax=Inf) +
-  labs(x = "Total Dissolved P (Mg/L)", y = "Total Dissolved N (Mg/L)") +
-  theme(axis.text.x= element_text(size = 14),
+  aes(ymax=Inf) +
+  labs(x = "Dates", y = "Nitrogen:Phosphorus ratio (Mg/L)") +
+  scale_x_date(date_breaks = "year", date_labels = "%Y") +
+  theme(axis.text.x= element_text(angle=-75, size = 14, vjust = 0.2),
         axis.text.y= element_text(size = 14),
         axis.title.x = element_text(size = 18),
         axis.title.y = element_text(size = 18),
         strip.text = element_text(size = 12)) + 
   facet_wrap(.~factor(HUC12, c("HCCR", "BR"), 
-                      labels = c("Harris Creek-Choptank River", "Bush River")), 
+                      labels = c("Choptank River", "Bush River")), 
              scales = "free") +
   geom_text(data = nt.model.coeff_HCCR_BR, 
-            aes(label = paste("Slope:", round(slope, 6), "\nR²:", round(r_squared, 5)),
-                x = -Inf, y = -Inf), 
-            hjust = -0.1, vjust = -7.5, size = 4, color = "black")
+            aes(label = paste("Slope:", round(slope, 4), "\nR²:", round(r_squared, 4)),
+                                               x = as.Date(date_label), y = -Inf),
+            hjust = 0.1, vjust = -9, size = 4, color = "black")
 lm_model_2pt
 
-loess_model_2pt <- ggplot(data_HCCR_BR, aes(y=TDN, x=TDP)) +  
+
+
+
+loess_model_2pt <- ggplot(data_HCCR_BR, aes(y=Ratio, x=SampleDates)) + 
   geom_point(shape = 21, color = "black", fill = "grey20", size = 3, alpha = 0.2) +
   geom_smooth(method="loess", col="darkred", linewidth = 2) +
   theme_bw() +
   aes(ymax=Inf) +
-  labs(x = "Total Dissolved P (Mg/L)", y = "Total Dissolved N (Mg/L)") +
-  theme(axis.text.x= element_text(size = 14),
+  labs(x = "Dates", y = "Nitrogen:Phosphorus ratio (Mg/L)") +
+  scale_x_date(date_breaks = "year", date_labels = "%Y") +
+  theme(axis.text.x= element_text(angle=-75, size = 14, vjust = 0.2),
         axis.text.y= element_text(size = 14),
         axis.title.x = element_text(size = 18),
         axis.title.y = element_text(size = 18),
         strip.text = element_text(size = 12)) + 
   facet_wrap(.~factor(HUC12, c("HCCR", "BR"), 
-                      labels = c("Harris Creek-Choptank River", "Bush River")), 
+                      labels = c("Choptank River", "Bush River")), 
              scales = "free") +
   geom_text(data = nt.model.coeff_HCCR_BR, 
-            aes(label = paste("Slope:", round(slope, 6), "\nR²:", round(r_squared, 5)),
-                x = -Inf, y = -Inf), 
-            hjust = -0.1, vjust = -7.5, size = 4, color = "black")
+            aes(label = paste("Slope:", round(slope, 4), "\nR²:", round(r_squared, 4)),
+                                               x = as.Date(date_label), y = -Inf),
+            hjust = 0.1, vjust = -9, size = 4, color = "black")
+loess_model_2pt
+
+
+
 
 my_plot_list_pt2 <- list(lm_model_2pt, loess_model_2pt)
 
 ggpubr::ggarrange(plotlist = my_plot_list_pt2, labels = c("A", "B"), nrow = 2) |> 
   annotate_figure(top = text_grob("Figure 2. Harris Creek-Choptank River & Bush River", 
                                   color = "black", face = "bold", size = 16))
-
 
 
 
